@@ -4,7 +4,7 @@
 
 ### Members
 - Donghyun Son
-- Dongkyung Kim
+- Dongkyung Lim
 - Narin Kim
 
 ### Rule
