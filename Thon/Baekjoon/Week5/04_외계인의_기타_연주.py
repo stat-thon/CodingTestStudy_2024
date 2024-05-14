@@ -46,10 +46,8 @@ for _ in range(N):
         stack[line - 1].pop()
         move += 1
 
-    if stack[line - 1][-1] == plat:
-        continue
-    
-    stack[line - 1].append(plat)
-    move += 1
+    if stack[line - 1][-1] < plat:
+        stack[line - 1].append(plat)
+        move += 1
 
 print(move)
