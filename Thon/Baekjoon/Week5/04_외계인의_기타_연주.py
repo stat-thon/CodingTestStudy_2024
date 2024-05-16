@@ -51,3 +51,30 @@ for _ in range(N):
         move += 1
 
 print(move)
+
+
+### 시간복잡도 차이나는 코드
+import sys
+
+input = sys.stdin.readline
+
+def solution():
+    
+    N, P = map(int, input().split())
+    notes = [[0] for _ in range(7)]
+    res = 0
+    
+    for _ in range(N):
+        a, b = map(int, input().split())
+        
+        while b < notes[a][-1]:
+            notes[a].pop()
+            res += 1
+            
+        if b > notes[a][-1]:
+            notes[a].append(b)
+            res += 1
+            
+    print(res)
+
+solution()
