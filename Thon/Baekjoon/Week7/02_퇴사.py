@@ -30,7 +30,7 @@ dfs(0, 0)
 print(MAX)
 
 
-### 답안 비교
+### 답안 비교 1
 # input
 n = int(input())
 l = []
@@ -53,3 +53,14 @@ for i in range(n - 1, -1, -1):
     an[i] = max(l[i][1] + an[i + l[i][0]], an[i + 1])
 
 print(an[0])
+
+
+### 답안 비교 2
+N = int(input())
+L = [list(map(int, input().split())) for _ in range(N)]
+dp = [0] * (N+1)
+for i in range(N):
+    for j in range(i+L[i][0], N+1):
+        if dp[j] < L[i][1] + dp[i]:
+            dp[j] = L[i][1] + dp[i]
+print(max(dp))
