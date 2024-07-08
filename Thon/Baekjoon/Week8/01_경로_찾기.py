@@ -30,3 +30,27 @@ for i in range(N):
     
 for i in range(N):
     print(*result[i])
+    
+    
+# 좀 더 줄임
+import sys
+input = sys.stdin.readline
+
+N = int(input()) # node 수
+
+graph = []
+for _ in range(N):
+    graph.append(list(map(int, input().split())))
+
+def dfs(n):
+    
+    for now in range(N):
+        if visited[now] == 0 and graph[n][now] == 1:
+            visited[now] = 1
+            dfs(now)
+    return
+
+for i in range(N):
+    visited = [0] * N
+    dfs(i)
+    print(*visited)
