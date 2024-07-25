@@ -21,3 +21,24 @@ for i in range(N):
 print(cnt)
 
 # 완전 탐색이라 오래 걸림
+
+### 답안 참고
+import sys
+input = sys.stdin.readline
+N = int(input())
+seq = {}
+for i in range(N):
+    s = input().strip()
+    seq[s] = i
+
+last = 0
+visited = [0] * N
+ans = 0
+for _ in range(N):
+    n = seq[input().strip()]
+    visited[n] = 1
+    if last < n: ans += 1
+    elif last == n:
+        while last < N and visited[last]:
+            last += 1
+print(ans)
