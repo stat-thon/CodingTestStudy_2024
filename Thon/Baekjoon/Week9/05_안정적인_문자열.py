@@ -46,3 +46,25 @@ while True:
     print(f'{num}. {stable(s)}')
 
     num += 1
+    
+    
+### 답안 참고
+ans=[]
+while True:
+  s=input()
+  if '-' in s:
+    break
+  stack=[]
+  cnt=0
+  for i in s:
+    if not stack and i=='}':
+      cnt+=1
+      stack.append("{")
+    elif stack and i=='}':
+      stack.pop()
+    else:
+      stack.append(i)
+  cnt+=len(stack)//2
+  ans.append(cnt)
+for i in range(len(ans)):
+  print(f"{i+1}. {ans[i]}")
